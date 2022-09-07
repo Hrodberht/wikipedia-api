@@ -3,4 +3,4 @@ const url =
 
 const formDOM = document.querySelector(".form");
 const inputDOM = document.querySelector(".form-input");
-const resultsDOM = document.querySelector(".form-results");
+const resultsDOM = document.querySelector(".results");
