@@ -21,8 +21,18 @@ const fetchPages = async (searchValue) => {
   try {
     const response = await fetch(`${url}${searchValue}`);
     const data = await response.json();
-    console.log(data);
+    const results = data.query.search;
+    if (results.length < 1) {
+      resultsDOM.innerHTML =
+        '<div class="error">No matching results. Please try again.</div>';
+      return;
+    }
+    renderResults(results);
   } catch (error) {
     resultsDOM.innerHTML = '<div class="error">There was an error.</div>';
   }
+};
+
+const renderResults = (list) => {
+  console.log(list);
 };
