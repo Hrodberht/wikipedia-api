@@ -17,5 +17,12 @@ formDOM.addEventListener("submit", (e) => {
 });
 
 const fetchPages = async (searchValue) => {
-  console.log(searchValue);
+  resultsDOM.innerHTML = '<div class="loading"></div>';
+  try {
+    const response = await fetch(`${url}${searchValue}`);
+    const data = await response.json();
+    console.log(data);
+  } catch (error) {
+    resultsDOM.innerHTML = '<div class="error">There was an error.</div>';
+  }
 };
